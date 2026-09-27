@@ -89,3 +89,130 @@ body{background:radial-gradient(circle at 8% 12%,rgba(200,141,74,.08),transparen
     height: 250px;
   }
 }
+/* =========================
+   SCOOTY PAGE
+========================= */
+
+.scooty-page {
+  padding: 110px 0 80px;
+}
+
+.scooty-heading {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.scooty-heading h1 {
+  font-size: 48px;
+  margin: 10px 0 15px;
+}
+
+.scooty-heading p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+.scooty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+
+.scooty-card {
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+}
+
+
+.scooty-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+
+.scooty-info {
+  padding: 25px;
+}
+
+
+.scooty-info h2 {
+  margin: 0 0 10px;
+}
+
+
+.scooty-price {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+
+.scooty-price span {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+.scooty-info p {
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+
+.scooty-book {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  background: #111;
+  color: #fff;
+}
+
+
+.scooty-book:hover {
+  opacity: 0.85;
+}
+
+
+/* Rent a Scooty navigation button */
+
+.nav-scooty {
+  padding: 9px 16px !important;
+  border-radius: 8px;
+  background: #111;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .scooty-page {
+    padding: 80px 20px 60px;
+  }
+
+  .scooty-heading h1 {
+    font-size: 36px;
+  }
+
+  .scooty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scooty-card img {
+    height: 280px;
+  }
+
+}
