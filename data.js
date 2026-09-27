@@ -1,3 +1,5 @@
+const SUPABASE_URL = "https://gxpueubienpmoozlgkyu.supabase.co/rest/v1/";
+const SUPABASE_KEY = "sb_publishable_T-OsYgpjuMJCO6puzNyJCw_7ExcPZt8";
 const DEFAULT_DATA = {
   contact: {
     name: "Sea Turtle Stay",
