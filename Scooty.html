@@ -8,11 +8,413 @@
   <title>Rent a Scooty | Sea Turtle Stay</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* =========================
+       SCOOTY PAGE
+    ========================= */
+
+    .scooty-page {
+      background: #faf9f5;
+      min-height: 100vh;
+    }
+
+    /* HERO */
+
+    .scooty-hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.38),
+          rgba(0,0,0,0.38)
+        ),
+        url("assets/WhatsApp%20Image%202026-09-22%20at%2018.33.59.jpeg")
+        center / cover no-repeat;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-content .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1;
+      margin: 0 0 25px;
+      letter-spacing: -3px;
+    }
+
+    .hero-content p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 15px 28px;
+      background: white;
+      color: #111;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+
+    /* COMMON */
+
+    .scooty-section {
+      padding: 100px 20px;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 55px;
+    }
+
+    .section-heading h2 {
+      font-size: 42px;
+      margin: 0 0 15px;
+    }
+
+    .section-heading p {
+      font-size: 17px;
+      line-height: 1.8;
+      opacity: 0.7;
+    }
+
+
+    /* WHY SECTION */
+
+    .why-section {
+      background: white;
+    }
+
+    .why-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .why-card {
+      padding: 35px 28px;
+      text-align: center;
+      border-radius: 18px;
+      background: #faf9f5;
+    }
+
+    .why-icon {
+      font-size: 35px;
+      margin-bottom: 18px;
+    }
+
+    .why-card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .why-card p {
+      line-height: 1.7;
+      opacity: 0.7;
+    }
+
+
+    /* SCOOTER SECTION */
+
+    .scooter-section {
+      background: #f3f1ea;
+    }
+
+    .scooty-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .scooty-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    }
+
+    .scooty-card img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scooty-info {
+      padding: 28px;
+    }
+
+    .scooty-info h3 {
+      font-size: 27px;
+      margin: 0 0 8px;
+    }
+
+    .scooty-price {
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .scooty-price span {
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.6;
+    }
+
+    .scooty-info p {
+      line-height: 1.7;
+      opacity: 0.7;
+      margin-bottom: 22px;
+    }
+
+    .scooty-book {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 9px;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+
+    /* HOW IT WORKS */
+
+    .steps-section {
+      background: white;
+    }
+
+    .steps {
+      max-width: 950px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      line-height: 1.7;
+      opacity: 0.7;
+    }
+
+
+    /* EXPLORE */
+
+    .explore-section {
+      background: #f3f1ea;
+    }
+
+    .places {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .place {
+      padding: 28px 18px;
+      background: white;
+      border-radius: 15px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .place span {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      opacity: 0.6;
+    }
+
+
+    /* INFO */
+
+    .info-section {
+      background: white;
+    }
+
+    .info-box {
+      max-width: 900px;
+      margin: auto;
+      padding: 45px;
+      border-radius: 20px;
+      background: #f5f3ed;
+    }
+
+    .info-box h2 {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    .info-list {
+      margin: 25px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+
+    /* FINAL CTA */
+
+    .final-cta {
+      padding: 120px 20px;
+      text-align: center;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.58),
+          rgba(0,0,0,0.58)
+        ),
+        url("assets/WhatsApp%20Image%202026-09-23%20at%2019.03.06.jpeg")
+        center / cover no-repeat;
+      color: white;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(38px, 5vw, 60px);
+      margin: 0 0 18px;
+    }
+
+    .final-cta p {
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 16px 30px;
+      background: white;
+      color: #111;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+
+    /* NAV BUTTON */
+
+    .nav-scooty {
+      padding: 10px 16px !important;
+      border-radius: 8px;
+      background: #111;
+      color: white !important;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .scooty-hero {
+        min-height: 520px;
+      }
+
+      .why-grid,
+      .steps,
+      .scooty-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .places {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .scooty-section {
+        padding: 75px 20px;
+      }
+
+      .section-heading h2 {
+        font-size: 34px;
+      }
+
+      .scooty-card img {
+        height: 280px;
+      }
+
+      .info-box {
+        padding: 30px 22px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .places {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        letter-spacing: -1px;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
+
 <header class="nav">
+
   <div class="container nav-in">
 
     <a class="brand" href="index.html">
@@ -20,39 +422,163 @@
     </a>
 
     <nav class="links">
+
       <a href="index.html">Home</a>
+
       <a href="index.html#about">About</a>
+
       <a href="index.html#rooms">Rooms</a>
+
       <a href="index.html#gallery">Gallery</a>
-      <a href="scooty.html" class="nav-scooty">Rent a Scooty</a>
+
+      <a href="scooty.html" class="nav-scooty">
+        Rent a Scooty
+      </a>
+
     </nav>
 
   </div>
+
 </header>
 
 
-<main>
 
-<section class="scooty-page">
+<main class="scooty-page">
 
-  <div class="container">
 
-    <div class="scooty-heading">
-      <div class="eyebrow">Explore Gokarna</div>
+  <!-- HERO -->
 
-      <h1>Rent a Scooty</h1>
+  <section class="scooty-hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Sea Turtle Stay • Gokarna
+      </div>
+
+      <h1>
+        Explore Gokarna Your Way
+      </h1>
 
       <p>
-        Explore Gokarna freely with a convenient scooty
-        available directly from Sea Turtle Stay.
+        Rent a scooty directly from Sea Turtle Stay
+        and discover the beaches, temples, cafés and
+        beautiful roads around Gokarna at your own pace.
       </p>
+
+      <a
+        href="#scooters"
+        class="hero-button">
+
+        View Scooters
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- WHY RENT -->
+
+  <section class="scooty-section why-section">
+
+    <div class="section-heading">
+
+      <h2>
+        Freedom to Explore
+      </h2>
+
+      <p>
+        Having your own ride makes exploring Gokarna
+        simple and convenient.
+      </p>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+      <div class="why-card">
+
+        <div class="why-icon">🏝️</div>
+
+        <h3>
+          Explore More
+        </h3>
+
+        <p>
+          Visit beaches and places around Gokarna
+          without depending on taxis.
+        </p>
+
+      </div>
+
+
+      <div class="why-card">
+
+        <div class="why-icon">🛵</div>
+
+        <h3>
+          Easy Travel
+        </h3>
+
+        <p>
+          Pick up your scooter from Sea Turtle Stay
+          and start your journey.
+        </p>
+
+      </div>
+
+
+      <div class="why-card">
+
+        <div class="why-icon">💰</div>
+
+        <h3>
+          ₹400 / Day
+        </h3>
+
+        <p>
+          Simple daily pricing with no complicated
+          rental plans.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- SCOOTERS -->
+
+  <section
+    class="scooty-section scooter-section"
+    id="scooters">
+
+    <div class="section-heading">
+
+      <h2>
+        Choose Your Ride
+      </h2>
+
+      <p>
+        Two scooters are currently available for rent
+        from Sea Turtle Stay.
+      </p>
+
     </div>
 
 
     <div class="scooty-grid">
 
 
-      <!-- SCOOTY 1 -->
+      <!-- SCOOTER 1 -->
 
       <div class="scooty-card">
 
@@ -62,7 +588,9 @@
 
         <div class="scooty-info">
 
-          <h2>Honda Scooty</h2>
+          <h3>
+            Honda Scooty
+          </h3>
 
           <div class="scooty-price">
             ₹400 <span>/ day</span>
@@ -70,14 +598,17 @@
 
           <p>
             Comfortable and convenient for exploring
-            Gokarna and nearby places.
+            Gokarna and nearby destinations.
           </p>
 
           <a
-            href="https://wa.me/YOURNUMBER"
+            href="https://wa.me/917022101015?text=Hi%2C%20I%20would%20like%20to%20rent%20a%20scooty%20from%20Sea%20Turtle%20Stay."
             class="scooty-book"
-            target="_blank">
+            target="_blank"
+            rel="noopener">
+
             Enquire on WhatsApp
+
           </a>
 
         </div>
@@ -85,7 +616,8 @@
       </div>
 
 
-      <!-- SCOOTY 2 -->
+
+      <!-- SCOOTER 2 -->
 
       <div class="scooty-card">
 
@@ -95,7 +627,9 @@
 
         <div class="scooty-info">
 
-          <h2>Honda Scooty</h2>
+          <h3>
+            Honda Scooty
+          </h3>
 
           <div class="scooty-price">
             ₹400 <span>/ day</span>
@@ -103,14 +637,17 @@
 
           <p>
             Comfortable and convenient for exploring
-            Gokarna and nearby places.
+            Gokarna and nearby destinations.
           </p>
 
           <a
-            href="https://wa.me/YOURNUMBER"
+            href="https://wa.me/917022101015?text=Hi%2C%20I%20would%20like%20to%20rent%20a%20scooty%20from%20Sea%20Turtle%20Stay."
             class="scooty-book"
-            target="_blank">
+            target="_blank"
+            rel="noopener">
+
             Enquire on WhatsApp
+
           </a>
 
         </div>
@@ -120,18 +657,234 @@
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+
+
+  <!-- HOW IT WORKS -->
+
+  <section class="scooty-section steps-section">
+
+    <div class="section-heading">
+
+      <h2>
+        How It Works
+      </h2>
+
+      <p>
+        Renting your ride is simple.
+      </p>
+
+    </div>
+
+
+    <div class="steps">
+
+
+      <div class="step">
+
+        <div class="step-number">
+          1
+        </div>
+
+        <h3>
+          Choose Your Scooty
+        </h3>
+
+        <p>
+          Select one of the available scooters.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">
+          2
+        </div>
+
+        <h3>
+          Message Us
+        </h3>
+
+        <p>
+          Send an enquiry through WhatsApp.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">
+          3
+        </div>
+
+        <h3>
+          Start Exploring
+        </h3>
+
+        <p>
+          Collect your scooter and enjoy Gokarna.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- PLACES -->
+
+  <section class="scooty-section explore-section">
+
+    <div class="section-heading">
+
+      <h2>
+        Places You Can Explore
+      </h2>
+
+      <p>
+        Take your ride and discover some of Gokarna's
+        popular spots.
+      </p>
+
+    </div>
+
+
+    <div class="places">
+
+      <div class="place">
+        Om Beach
+        <span>Beach & sunset</span>
+      </div>
+
+      <div class="place">
+        Kudle Beach
+        <span>Beach & cafés</span>
+      </div>
+
+      <div class="place">
+        Gokarna Town
+        <span>Temple & local life</span>
+      </div>
+
+      <div class="place">
+        Half Moon Beach
+        <span>Quiet coastline</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- RENTAL INFO -->
+
+  <section class="scooty-section info-section">
+
+    <div class="section-heading">
+
+      <h2>
+        Rental Information
+      </h2>
+
+      <p>
+        A few things to know before booking.
+      </p>
+
+    </div>
+
+
+    <div class="info-box">
+
+      <h2>
+        Scooty Rental
+      </h2>
+
+      <ul class="info-list">
+
+        <li>
+          <strong>Price:</strong>
+          ₹400 per day
+        </li>
+
+        <li>
+          <strong>Booking:</strong>
+          Contact us through WhatsApp
+        </li>
+
+        <li>
+          <strong>Location:</strong>
+          Sea Turtle Stay, Gokarna
+        </li>
+
+        <li>
+          <strong>Availability:</strong>
+          Subject to availability
+        </li>
+
+        <li>
+          <strong>Enquiries:</strong>
+          7022101015
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FINAL CTA -->
+
+  <section class="final-cta">
+
+    <h2>
+      Ready to Explore Gokarna?
+    </h2>
+
+    <p>
+      Message Sea Turtle Stay on WhatsApp and
+      check the availability of a scooty for your stay.
+    </p>
+
+    <a
+      href="https://wa.me/917022101015?text=Hi%2C%20I%20would%20like%20to%20rent%20a%20scooty%20from%20Sea%20Turtle%20Stay."
+      class="cta-button"
+      target="_blank"
+      rel="noopener">
+
+      Enquire on WhatsApp
+
+    </a>
+
+  </section>
+
 
 </main>
 
 
+
 <footer class="footer">
+
   <div class="container">
-    <p>Sea Turtle Stay • Gokarna, Karnataka</p>
+
+    <p>
+      Sea Turtle Stay • Gokarna, Karnataka
+    </p>
+
   </div>
+
 </footer>
 
+
 </body>
+
 </html>
