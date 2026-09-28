@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,10 +31,13 @@
 
     .scooty-hero {
       min-height: 620px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       text-align: center;
+
       padding: 90px 20px;
 
       background:
@@ -77,11 +81,15 @@
       display: inline-block;
       margin-top: 32px;
       padding: 15px 28px;
+
       background: white;
       color: #111;
+
       text-decoration: none;
+
       border-radius: 10px;
       font-weight: 700;
+
       transition: 0.2s ease;
     }
 
@@ -134,7 +142,9 @@
     .why-card {
       padding: 35px 28px;
       text-align: center;
+
       border-radius: 18px;
+
       background: #faf9f5;
     }
 
@@ -225,6 +235,7 @@
       padding: 8px 11px;
       border-radius: 8px;
       background: #f4f2eb;
+
       font-size: 13px;
       font-weight: 600;
     }
@@ -232,12 +243,17 @@
     .scooty-book {
       display: block;
       text-align: center;
+
       padding: 14px;
+
       border-radius: 9px;
+
       background: #111;
       color: white;
+
       text-decoration: none;
       font-weight: 700;
+
       transition: 0.2s ease;
     }
 
@@ -248,10 +264,14 @@
     .scooty-unavailable {
       display: block;
       text-align: center;
+
       padding: 14px;
+
       border-radius: 9px;
+
       background: #e5e5e5;
       color: #666;
+
       font-weight: 700;
     }
 
@@ -436,6 +456,7 @@
       grid-column: 1 / -1;
 
       text-align: center;
+
       padding: 60px 20px;
 
       font-size: 17px;
@@ -481,6 +502,7 @@
       .info-box {
         padding: 30px 22px;
       }
+
     }
 
     @media (max-width: 500px) {
@@ -894,6 +916,7 @@
         <ul class="info-list">
 
           <li>
+
             <strong>
               Price:
             </strong>
@@ -903,46 +926,56 @@
             </span>
 
             per day
+
           </li>
 
 
           <li>
+
             <strong>
               Kilometres:
             </strong>
 
             Unlimited
+
           </li>
 
 
           <li>
+
             <strong>
               Helmet:
             </strong>
 
             Included
+
           </li>
 
 
           <li>
+
             <strong>
               Assistance:
             </strong>
 
             24/7 Assistance
+
           </li>
 
 
           <li>
+
             <strong>
               Pickup:
             </strong>
 
             Available from the stay
+
           </li>
 
 
           <li>
+
             <strong>
               Availability:
             </strong>
@@ -950,6 +983,7 @@
             <span id="infoAvailability">
               Checking...
             </span>
+
           </li>
 
 
@@ -1018,21 +1052,6 @@
 
   <script>
 
-    /*
-      IMPORTANT:
-
-      This page reads the latest data DIRECTLY
-      from Supabase.
-
-      It does not use the old getData()
-      function from data.js.
-
-      Therefore, when Admin changes the
-      scooty price, this page reads that
-      updated price directly.
-    */
-
-
     const SUPABASE_URL =
       "https://gxpueubienpmoozlgkyu.supabase.co";
 
@@ -1098,7 +1117,7 @@
 
 
         /*
-          Read the latest site_data row
+          Read latest site_data row
         */
 
         const {
@@ -1126,14 +1145,17 @@
             error
           );
 
+
           grid.innerHTML = `
             <div class="loading">
               Unable to load scooter information.
             </div>
           `;
 
+
           infoPrice.textContent =
             "Unavailable";
+
 
           infoAvailability.textContent =
             "Please contact us";
@@ -1204,11 +1226,14 @@
             </div>
           `;
 
+
           infoPrice.textContent =
             "On enquiry";
 
+
           infoAvailability.textContent =
             "Currently unavailable";
+
 
           return;
 
@@ -1242,9 +1267,8 @@
 
 
         /*
-          Use first scooter's current
-          database price for the
-          rental information section.
+          Use first available scooter's
+          current database price
         */
 
         if (
@@ -1303,9 +1327,11 @@
             const image =
               document.createElement("img");
 
+
             image.src =
               scooter.image ||
               "assets/room1.jpeg";
+
 
             image.alt =
               scooter.name ||
@@ -1339,6 +1365,7 @@
             const title =
               document.createElement("h3");
 
+
             title.textContent =
               scooter.name ||
               `Scooty ${index + 1}`;
@@ -1350,6 +1377,7 @@
 
             const price =
               document.createElement("div");
+
 
             price.className =
               "scooty-price";
@@ -1371,7 +1399,7 @@
             } else {
 
               price.innerHTML =
-                `On enquiry`;
+                "On enquiry";
 
             }
 
@@ -1383,6 +1411,7 @@
             const description =
               document.createElement("p");
 
+
             description.textContent =
               "Comfortable and convenient for exploring Gokarna and nearby destinations.";
 
@@ -1393,6 +1422,7 @@
 
             const features =
               document.createElement("div");
+
 
             features.className =
               "scooty-features";
@@ -1527,7 +1557,6 @@
 
       catch (error) {
 
-
         console.error(
           "Scooty page error:",
           error
@@ -1548,7 +1577,6 @@
 
         infoAvailability.textContent =
           "Please contact us";
-
 
       }
 
@@ -1563,1236 +1591,6 @@
 
   </script>
 
-
-</body>
-
-</html>
-    .hero-content .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(48px, 7vw, 82px);
-      line-height: 1;
-      margin: 0 0 25px;
-      letter-spacing: -3px;
-    }
-
-    .hero-content p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 19px;
-      line-height: 1.8;
-    }
-
-    .hero-button {
-      display: inline-block;
-      margin-top: 32px;
-      padding: 15px 28px;
-      background: white;
-      color: #111;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 700;
-    }
-
-    .scooty-section {
-      padding: 100px 20px;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 750px;
-      margin: 0 auto 55px;
-    }
-
-    .section-heading h2 {
-      font-size: 42px;
-      margin: 0 0 15px;
-    }
-
-    .section-heading p {
-      font-size: 17px;
-      line-height: 1.8;
-      opacity: .7;
-    }
-
-    .why-section {
-      background: white;
-    }
-
-    .why-grid {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .why-card {
-      padding: 35px 28px;
-      text-align: center;
-      border-radius: 18px;
-      background: #faf9f5;
-    }
-
-    .why-icon {
-      font-size: 35px;
-      margin-bottom: 18px;
-    }
-
-    .why-card h3 {
-      margin-bottom: 10px;
-      font-size: 21px;
-    }
-
-    .why-card p {
-      line-height: 1.7;
-      opacity: .7;
-    }
-
-    .scooter-section {
-      background: #f3f1ea;
-    }
-
-    .scooty-grid {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-    }
-
-    .scooty-card {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 12px 35px rgba(0,0,0,.08);
-    }
-
-    .scooty-card img {
-      width: 100%;
-      height: 330px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .scooty-info {
-      padding: 28px;
-    }
-
-    .scooty-info h3 {
-      font-size: 27px;
-      margin: 0 0 8px;
-    }
-
-    .scooty-price {
-      font-size: 25px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .scooty-price span {
-      font-size: 14px;
-      font-weight: 400;
-      opacity: .6;
-    }
-
-    .scooty-info p {
-      line-height: 1.7;
-      opacity: .7;
-      margin-bottom: 22px;
-    }
-
-    .scooty-book {
-      display: block;
-      text-align: center;
-      padding: 14px;
-      border-radius: 9px;
-      background: #111;
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    .scooty-unavailable {
-      display: block;
-      text-align: center;
-      padding: 14px;
-      border-radius: 9px;
-      background: #e5e5e5;
-      color: #666;
-      font-weight: 700;
-    }
-
-    /* =========================
-       HOW IT WORKS
-    ========================= */
-
-    .steps-section {
-      background: white;
-    }
-
-    .steps {
-      max-width: 950px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-
-    .step {
-      text-align: center;
-    }
-
-    .step-number {
-      width: 55px;
-      height: 55px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      background: #111;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .step h3 {
-      margin: 0 0 10px;
-    }
-
-    .step p {
-      line-height: 1.7;
-      opacity: 0.7;
-      margin: 0;
-    }
-
-    /* =========================
-       PLACES
-    ========================= */
-
-    .explore-section {
-      background: #f3f1ea;
-    }
-
-    .places {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .place {
-      padding: 28px 18px;
-      background: white;
-      border-radius: 15px;
-      text-align: center;
-      font-weight: 700;
-    }
-
-    .place span {
-      display: block;
-      margin-top: 8px;
-      font-size: 13px;
-      font-weight: 400;
-      opacity: 0.6;
-    }
-
-    /* =========================
-       INFO
-    ========================= */
-
-    .info-section {
-      background: white;
-    }
-
-    .info-box {
-      max-width: 900px;
-      margin: auto;
-      padding: 45px;
-      border-radius: 20px;
-      background: #f5f3ed;
-    }
-
-    .info-box h2 {
-      margin: 0 0 25px;
-      font-size: 30px;
-    }
-
-    .info-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .info-list li {
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .info-list li:last-child {
-      border-bottom: none;
-    }
-
-    /* =========================
-       FINAL CTA
-    ========================= */
-
-    .final-cta {
-      padding: 120px 20px;
-      text-align: center;
-
-      background:
-        linear-gradient(
-          rgba(0, 0, 0, 0.58),
-          rgba(0, 0, 0, 0.58)
-        ),
-        url("assets/WhatsApp%20Image%202026-09-23%20at%2019.03.06.jpeg")
-        center / cover no-repeat;
-
-      color: white;
-    }
-
-    .final-cta h2 {
-      font-size: clamp(38px, 5vw, 60px);
-      margin: 0 0 18px;
-    }
-
-    .final-cta p {
-      max-width: 650px;
-      margin: auto;
-      line-height: 1.8;
-      font-size: 17px;
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 16px 30px;
-      background: white;
-      color: #111;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    /* =========================
-       LOADING
-    ========================= */
-
-    .loading {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 17px;
-      opacity: 0.65;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 800px) {
-
-      .scooty-hero {
-        min-height: 540px;
-      }
-
-      .hero-content h1 {
-        letter-spacing: -1px;
-      }
-
-      .why-grid,
-      .steps,
-      .scooty-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .places {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .scooty-section {
-        padding: 75px 20px;
-      }
-
-      .section-heading h2 {
-        font-size: 34px;
-      }
-
-      .scooty-card img {
-        height: 280px;
-      }
-
-      .info-box {
-        padding: 30px 22px;
-      }
-    }
-
-    @media (max-width: 500px) {
-
-      .places {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-content h1 {
-        font-size: 48px;
-      }
-
-      .hero-content p {
-        font-size: 16px;
-      }
-
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
-
-  <header class="nav">
-
-    <div class="container nav-in">
-
-      <a class="brand" href="index.html">
-        🐢 <span>Sea Turtle</span> Stay
-      </a>
-
-      <nav class="links">
-
-        <a href="index.html">Home</a>
-
-        <a href="index.html#about">About</a>
-
-        <a href="index.html#rooms">Rooms</a>
-
-        <a href="index.html#amenities">Amenities</a>
-
-        <a href="index.html#gallery">Gallery</a>
-
-        <a href="Scooty.html" class="nav-scooty">
-          🛵 Rent a Scooty
-        </a>
-
-        <a href="index.html#activities">Activities</a>
-
-        <a href="index.html#contact">Contact</a>
-
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <main class="scooty-page">
-
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <section class="scooty-hero">
-
-      <div class="hero-content">
-
-        <div class="hero-eyebrow">
-          Explore Gokarna
-        </div>
-
-        <h1>
-          Your Ride.<br>
-          Your Journey.
-        </h1>
-
-        <p>
-          Rent a scooty and explore Gokarna's beaches,
-          temples, cafés and beautiful coastal roads
-          at your own pace.
-        </p>
-
-        <a href="#scooters" class="hero-button">
-          View Scooters
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         WHY RENT
-    ========================= -->
-
-    <section class="scooty-section why-section">
-
-      <div class="section-heading">
-
-        <h2>
-          Explore Without Limits
-        </h2>
-
-        <p>
-          A convenient way to discover more of Gokarna
-          during your stay.
-        </p>
-
-      </div>
-
-
-      <div class="why-grid">
-
-        <div class="why-card">
-
-          <div class="why-icon">
-            🏝️
-          </div>
-
-          <h3>
-            Explore More
-          </h3>
-
-          <p>
-            Visit beaches, viewpoints and local
-            attractions without depending on taxis.
-          </p>
-
-        </div>
-
-
-        <div class="why-card">
-
-          <div class="why-icon">
-            ♾️
-          </div>
-
-          <h3>
-            Unlimited KMs
-          </h3>
-
-          <p>
-            Explore freely without worrying about
-            a daily kilometre limit.
-          </p>
-
-        </div>
-
-
-        <div class="why-card">
-
-          <div class="why-icon">
-            🪖
-          </div>
-
-          <h3>
-            Helmet Included
-          </h3>
-
-          <p>
-            A helmet is included with the scooty rental.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         SCOOTERS
-    ========================= -->
-
-    <section
-      class="scooty-section scooter-section"
-      id="scooters">
-
-      <div class="section-heading">
-
-        <h2>
-          Choose Your Ride
-        </h2>
-
-        <p>
-          Select an available scooter and send us
-          a quick WhatsApp enquiry.
-        </p>
-
-      </div>
-
-
-      <div
-        class="scooty-grid"
-        id="scootyGrid">
-
-        <div class="loading">
-          Loading scooters...
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         HOW IT WORKS
-    ========================= -->
-
-    <section class="scooty-section steps-section">
-
-      <div class="section-heading">
-
-        <h2>
-          How It Works
-        </h2>
-
-        <p>
-          Getting your ride is simple.
-        </p>
-
-      </div>
-
-
-      <div class="steps">
-
-        <div class="step">
-
-          <div class="step-number">
-            1
-          </div>
-
-          <h3>
-            Choose Your Ride
-          </h3>
-
-          <p>
-            Select one of the available scooters.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            2
-          </div>
-
-          <h3>
-            Send an Enquiry
-          </h3>
-
-          <p>
-            Contact us on WhatsApp to check
-            availability and rental details.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            3
-          </div>
-
-          <h3>
-            Start Exploring
-          </h3>
-
-          <p>
-            Collect your ride and enjoy Gokarna.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         PLACES
-    ========================= -->
-
-    <section class="scooty-section explore-section">
-
-      <div class="section-heading">
-
-        <h2>
-          Places to Explore
-        </h2>
-
-        <p>
-          Take your ride and discover the coast
-          and surroundings of Gokarna.
-        </p>
-
-      </div>
-
-
-      <div class="places">
-
-        <div class="place">
-          Om Beach
-          <span>Beach & sunset</span>
-        </div>
-
-        <div class="place">
-          Kudle Beach
-          <span>Beach & cafés</span>
-        </div>
-
-        <div class="place">
-          Gokarna Town
-          <span>Temple & local life</span>
-        </div>
-
-        <div class="place">
-          Half Moon Beach
-          <span>Quiet coastline</span>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         RENTAL INFORMATION
-    ========================= -->
-
-    <section class="scooty-section info-section">
-
-      <div class="section-heading">
-
-        <h2>
-          Rental Information
-        </h2>
-
-        <p>
-          A few things to know before enquiring.
-        </p>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <h2>
-          Scooty Rental
-        </h2>
-
-
-        <ul class="info-list">
-
-          <li>
-            <strong>Price:</strong>
-            <span id="infoPrice">Loading...</span>
-            per day
-          </li>
-
-          <li>
-            <strong>Kilometres:</strong>
-            Unlimited
-          </li>
-
-          <li>
-            <strong>Helmet:</strong>
-            Included
-          </li>
-
-          <li>
-            <strong>Assistance:</strong>
-            24/7 Assistance
-          </li>
-
-          <li>
-            <strong>Pickup:</strong>
-            Available from the stay
-          </li>
-
-          <li>
-            <strong>Availability:</strong>
-            <span id="infoAvailability">
-              Checking...
-            </span>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         FINAL CTA
-    ========================= -->
-
-    <section class="final-cta">
-
-      <h2>
-        Ready to Explore Gokarna?
-      </h2>
-
-      <p>
-        Send us a WhatsApp enquiry and check
-        the availability and rental details.
-      </p>
-
-
-      <a
-        href="https://wa.me/9170221015?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20renting%20a%20scooty.%20Please%20share%20the%20availability%20and%20rental%20details."
-        class="cta-button"
-        target="_blank"
-        rel="noopener">
-
-        Enquire on WhatsApp
-
-      </a>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer class="footer">
-
-    <div class="container">
-
-      <p>
-        Sea Turtle Stay • Gokarna, Karnataka
-      </p>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =========================
-       SUPABASE
-  ========================= -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-  <script>
-
-    const SUPABASE_URL =
-      "https://gxpueubienpmoozlgkyu.supabase.co";
-
-    const SUPABASE_KEY =
-      "sb_publishable_T-OsYgpjuMJCO6puzNyJCw_7ExcPZt8";
-
-
-    const supabaseClient =
-      window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-      );
-
-
-    function formatINR(value) {
-
-      return new Intl.NumberFormat(
-        "en-IN",
-        {
-          style: "currency",
-          currency: "INR",
-          maximumFractionDigits: 0
-        }
-      ).format(Number(value));
-
-    }
-
-
-    const WHATSAPP_NUMBER =
-      "9170221015";
-
-
-    async function loadScootyData() {
-
-      const grid =
-        document.getElementById("scootyGrid");
-
-      const infoPrice =
-        document.getElementById("infoPrice");
-
-      const infoAvailability =
-        document.getElementById("infoAvailability");
-
-
-      try {
-
-        console.log(
-          "Loading latest scooty data..."
-        );
-
-
-        const {
-          data,
-          error
-        } = await supabaseClient
-          .from("site_data")
-          .select("id, data")
-          .limit(1)
-          .single();
-
-
-        if (error) {
-
-          console.error(
-            "Supabase error:",
-            error
-          );
-
-          grid.innerHTML = `
-            <div class="loading">
-              Unable to load scooter information.
-            </div>
-          `;
-
-          infoPrice.textContent =
-            "Unavailable";
-
-          infoAvailability.textContent =
-            "Please contact us";
-
-          return;
-
-        }
-
-
-        console.log(
-          "Supabase data:",
-          data
-        );
-
-
-        if (
-          !data ||
-          !data.data
-        ) {
-
-          throw new Error(
-            "No site data found."
-          );
-
-        }
-
-
-        const siteData =
-          data.data;
-
-
-        const scooters =
-          Array.isArray(siteData.scooty)
-            ? siteData.scooty
-            : [];
-
-
-        console.log(
-          "Scooty data:",
-          scooters
-        );
-
-
-        if (scooters.length === 0) {
-
-          grid.innerHTML = `
-            <div class="loading">
-              No scooters are currently listed.
-            </div>
-          `;
-
-          infoPrice.textContent =
-            "On enquiry";
-
-          infoAvailability.textContent =
-            "Currently unavailable";
-
-          return;
-
-        }
-
-
-        const availableScooters =
-          scooters.filter(
-            scooter =>
-              scooter.available !== false
-          );
-
-
-        if (
-          availableScooters.length > 0
-        ) {
-
-          infoAvailability.textContent =
-            `${availableScooters.length} scooter${availableScooters.length > 1 ? "s" : ""} available`;
-
-        } else {
-
-          infoAvailability.textContent =
-            "Currently unavailable";
-
-        }
-
-
-        if (
-          availableScooters.length > 0
-        ) {
-
-          const firstPrice =
-            Number(
-              availableScooters[0].price
-            );
-
-
-          if (
-            Number.isFinite(firstPrice)
-          ) {
-
-            infoPrice.textContent =
-              formatINR(firstPrice);
-
-          } else {
-
-            infoPrice.textContent =
-              "On enquiry";
-
-          }
-
-        }
-
-
-        grid.innerHTML = "";
-
-
-        scooters.forEach(
-          (scooter, index) => {
-
-            const card =
-              document.createElement("article");
-
-            card.className =
-              "scooty-card";
-
-
-            const image =
-              document.createElement("img");
-
-            image.src =
-              scooter.image ||
-              "assets/room1.jpeg";
-
-            image.alt =
-              scooter.name ||
-              "Scooty for rent";
-
-
-            image.onerror =
-              function() {
-
-                this.src =
-                  "assets/room1.jpeg";
-
-              };
-
-
-            const info =
-              document.createElement("div");
-
-            info.className =
-              "scooty-info";
-
-
-            const title =
-              document.createElement("h3");
-
-            title.textContent =
-              scooter.name ||
-              `Scooty ${index + 1}`;
-
-
-            const price =
-              document.createElement("div");
-
-            price.className =
-              "scooty-price";
-
-
-            const currentPrice =
-              Number(
-                scooter.price
-              );
-
-
-            if (
-              Number.isFinite(currentPrice)
-            ) {
-
-              price.innerHTML =
-                `${formatINR(currentPrice)} <span>/ day</span>`;
-
-            } else {
-
-              price.innerHTML =
-                "On enquiry";
-
-            }
-
-
-            const description =
-              document.createElement("p");
-
-            description.textContent =
-              "Comfortable and convenient for exploring Gokarna and nearby destinations.";
-
-
-            const features =
-              document.createElement("div");
-
-            features.className =
-              "scooty-features";
-
-
-            features.innerHTML = `
-              <span class="feature">
-                ♾️ Unlimited KMs
-              </span>
-
-              <span class="feature">
-                🪖 Helmet Included
-              </span>
-
-              <span class="feature">
-                📞 24/7 Assistance
-              </span>
-            `;
-
-
-            if (
-              scooter.available !== false
-            ) {
-
-              const button =
-                document.createElement("a");
-
-
-              const message =
-                `Hi, I would like to enquire about renting ${scooter.name || "a scooty"}. Please share the availability and rental details.`;
-
-
-              button.href =
-                `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-
-              button.target =
-                "_blank";
-
-
-              button.rel =
-                "noopener";
-
-
-              button.className =
-                "scooty-book";
-
-
-              button.textContent =
-                "Enquire on WhatsApp";
-
-
-              info.appendChild(title);
-              info.appendChild(price);
-              info.appendChild(description);
-              info.appendChild(features);
-              info.appendChild(button);
-
-            } else {
-
-              const unavailable =
-                document.createElement("div");
-
-
-              unavailable.className =
-                "scooty-unavailable";
-
-
-              unavailable.textContent =
-                "Currently Unavailable";
-
-
-              info.appendChild(title);
-              info.appendChild(price);
-              info.appendChild(description);
-              info.appendChild(features);
-              info.appendChild(unavailable);
-
-            }
-
-
-            card.appendChild(image);
-            card.appendChild(info);
-
-            grid.appendChild(card);
-
-          }
-        );
-
-
-        console.log(
-          "Scooty page loaded successfully."
-        );
-
-
-      } catch (error) {
-
-        console.error(
-          "Scooty page error:",
-          error
-        );
-
-
-        grid.innerHTML = `
-          <div class="loading">
-            Something went wrong while loading the scooters.
-            Please try again.
-          </div>
-        `;
-
-
-        infoPrice.textContent =
-          "Unavailable";
-
-
-        infoAvailability.textContent =
-          "Please contact us";
-
-      }
-
-    }
-
-
-    loadScootyData();
-
-  </script>
 
 </body>
 
