@@ -128,9 +128,7 @@ body{
 
 <body>
 
-<!-- =========================
-     LOGIN
-========================= -->
+<!-- LOGIN -->
 
 <div class="admin-wrap" id="loginView">
 
@@ -181,9 +179,7 @@ body{
 </div>
 
 
-<!-- =========================
-     ADMIN DASHBOARD
-========================= -->
+<!-- ADMIN DASHBOARD -->
 
 <div class="admin-wrap" id="adminView" hidden>
 
@@ -242,12 +238,9 @@ body{
 </div>
 
 
-<!-- =========================
-     SUPABASE
-========================= -->
+<!-- SUPABASE -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script src="data.js"></script>
 
 
@@ -343,7 +336,6 @@ function editor(){
             >
           </label>
 
-
           <label>
             Price / night
 
@@ -357,7 +349,6 @@ function editor(){
 
         </div>
 
-
         <label>
           Description
 
@@ -367,7 +358,6 @@ function editor(){
           >${r.description || ""}</textarea>
 
         </label>
-
 
         <label>
 
@@ -425,7 +415,6 @@ function editor(){
             Scooty ${i + 1}
           </h4>
 
-
           <div class="row">
 
             <label>
@@ -438,7 +427,6 @@ function editor(){
               >
             </label>
 
-
             <label>
               Price / day
 
@@ -447,12 +435,11 @@ function editor(){
                 min="0"
                 data-s="${i}"
                 data-k="price"
-                value="${s.price || 0}"
+                value="${Number(s.price) || 0}"
               >
             </label>
 
           </div>
-
 
           <label>
 
@@ -466,7 +453,6 @@ function editor(){
             Available for rental
 
           </label>
-
 
           ${
             s.image
@@ -489,7 +475,7 @@ function editor(){
     html += `
 
       <p style="color:#b00020">
-        Scooty data is not available in data.js.
+        Scooty data is not available.
       </p>
 
     `;
@@ -532,9 +518,7 @@ function editor(){
 $("#loginBtn").onclick = async () => {
 
   const email = $("#email").value.trim();
-
   const password = $("#password").value;
-
 
   if(!email || !password){
 
@@ -544,11 +528,9 @@ $("#loginBtn").onclick = async () => {
 
   }
 
-
   const button = $("#loginBtn");
 
   button.disabled = true;
-
   button.textContent = "Logging in...";
 
 
@@ -556,7 +538,6 @@ $("#loginBtn").onclick = async () => {
     await supabaseClient.auth.signInWithPassword({
 
       email: email,
-
       password: password
 
     });
@@ -569,7 +550,6 @@ $("#loginBtn").onclick = async () => {
     alert("Login failed: " + error.message);
 
     button.disabled = false;
-
     button.textContent = "Log in";
 
     return;
@@ -577,17 +557,10 @@ $("#loginBtn").onclick = async () => {
   }
 
 
-  /* Load current database data */
-
   draft = await getData();
 
-
-  /* Show dashboard */
-
   $("#loginView").hidden = true;
-
   $("#adminView").hidden = false;
-
 
   editor();
 
@@ -614,44 +587,72 @@ $("#saveBtn").onclick = async () => {
 
   document.querySelectorAll("[data-r]").forEach(x => {
 
-    const r = draft.rooms[x.dataset.r];
+    const index = Number(x.dataset.r);
+    const key = x.dataset.k;
 
-    const k = x.dataset.k;
+    if(!draft.rooms[index]) return;
 
+    if(key === "price"){
 
-    r[k] =
-      k === "price"
-        ? Number(x.value)
-        : k === "available"
-        ? x.checked
-        : x.value;
+      draft.rooms[index].price = Number(x.value);
+
+    }
+    else if(key === "available"){
+
+      draft.rooms[index].available = x.checked;
+
+    }
+    else{
+
+      draft.rooms[index][key] = x.value;
+
+    }
 
   });
 
 
   /* SCOOTY */
 
+  if(!Array.isArray(draft.scooty)){
+
+    draft.scooty = [];
+
+  }
+
+
   document.querySelectorAll("[data-s]").forEach(x => {
 
-    const s = draft.scooty[x.dataset.s];
+    const index = Number(x.dataset.s);
+    const key = x.dataset.k;
 
-    const k = x.dataset.k;
+    if(!draft.scooty[index]) return;
 
 
-    s[k] =
-      k === "price"
-        ? Number(x.value)
-        : k === "available"
-        ? x.checked
-        : x.value;
+    if(key === "price"){
+
+      draft.scooty[index].price = Number(x.value);
+
+    }
+    else if(key === "available"){
+
+      draft.scooty[index].available = x.checked;
+
+    }
+    else{
+
+      draft.scooty[index][key] = x.value;
+
+    }
 
   });
+
+
+  console.log("Scooty data before save:", draft.scooty);
 
 
   const button = $("#saveBtn");
 
   button.disabled = true;
-
   button.textContent = "Saving...";
 
 
@@ -660,9 +661,11 @@ $("#saveBtn").onclick = async () => {
 
   if(success){
 
+    console.log("Scooty data saved:", draft.scooty);
+
     alert(
       "Saved successfully!\n\n" +
-      "The public website will now use the updated data."
+      "Room and scooty changes have been saved to Supabase."
     );
 
   }else{
@@ -676,7 +679,6 @@ $("#saveBtn").onclick = async () => {
 
 
   button.disabled = false;
-
   button.textContent = "Save All Changes";
 
 };
