@@ -46,9 +46,35 @@ const DEFAULT_DATA = {
   ]
 };
 
-function getData(){
-  try { return {...DEFAULT_DATA, ...JSON.parse(localStorage.getItem("seaTurtleData") || "{}")}; }
-  catch { return structuredClone(DEFAULT_DATA); }
+async function getData(){
+  const { data, error } = await supabase
+    .from("site_data")
+    .select("data")
+    .limit(1)
+    .single();
+
+  if (error || !data) {
+    console.error("Supabase read error:", error);
+    return structuredClone(DEFAULT_DATA);
+  }
+
+  return { ...DEFAULT_DATA, ...data.data };
 }
-function saveData(data){ localStorage.setItem("seaTurtleData", JSON.stringify(data)); }
+
+async function saveData(data){
+  const { data: row } = await supabase
+    .from("site_data")
+    .select("id")
+    .limit(1)
+    .single();
+
+  if (!row) return;
+
+  const { error } = await supabase
+    .from("site_data")
+    .update({ data })
+    .eq("id", row.id);
+
+  if (error) console.error("Supabase save error:", error);
+}
 function formatINR(n){ return new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(Number(n)); }
