@@ -77,7 +77,22 @@ const DEFAULT_DATA = {
       available: true
     }
   ],
-
+ scooty: [
+    {
+      id: "scooty-1",
+      name: "Honda Activa",
+      price: 400,
+      available: true,
+      image: "assets/WhatsApp Image 2026-09-22 at 18.33.59.jpeg"
+    },
+    {
+      id: "scooty-2",
+      name: "Honda Activa",
+      price: 400,
+      available: true,
+      image: "assets/WhatsApp Image 2026-09-23 at 19.03.06.jpeg"
+    }
+  ],
   activities: [
     {
       id: "trekking",
