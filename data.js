@@ -263,26 +263,28 @@ async function getData() {
 
 async function saveData(data) {
   try {
-    const { data: existing, error: readError } = await supabaseClient
+    const result = await supabaseClient
       .from("site_data")
       .select("id")
       .limit(1)
       .single();
 
-    if (readError) {
-      console.error("Could not find site_data row:", readError);
+    if (result.error) {
+      console.error("Could not find site_data row:", result.error);
       return false;
     }
 
-    const { error } = await supabaseClient
+    const rowId = result.data.id;
+
+    const updateResult = await supabaseClient
       .from("site_data")
       .update({
         data: data
       })
-      .eq("id", existing.id);
+      .eq("id", rowId);
 
-    if (error) {
-      console.error("Supabase save error:", error);
+    if (updateResult.error) {
+      console.error("Supabase save error:", updateResult.error);
       return false;
     }
 
@@ -294,7 +296,6 @@ async function saveData(data) {
     return false;
   }
 }
-
 
 // ===============================
 // PRICE FORMATTER
