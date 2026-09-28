@@ -8,7 +8,7 @@ let draft;
 const $=s=>document.querySelector(s);
 function editor(){let html='<div class="admin-card"><h3>Contact information</h3><div class="row"><label>Phone<input data-c="phone" value="'+draft.contact.phone+'"></label><label>WhatsApp<input data-c="whatsapp" value="'+draft.contact.whatsapp+'"></label></div><label>Location<input data-c="location" value="'+draft.contact.location+'"></label><label>Email<input data-c="email" value="'+draft.contact.email+'"></label></div><div class="admin-card"><h3>Rooms, prices & availability</h3>';draft.rooms.forEach((r,i)=>html+=`<div style="padding:15px 0;border-top:1px solid var(--line)"><div class="row"><label>Room name<input data-r="${i}" data-k="name" value="${r.name}"></label><label>Price / night<input type="number" data-r="${i}" data-k="price" value="${r.price}"></label></div><label>Description<textarea data-r="${i}" data-k="description">${r.description}</textarea></label><label><input type="checkbox" data-r="${i}" data-k="available" ${r.available!==false?'checked':''}> Available to book</label></div>`);html+='</div><div class="admin-card"><h3>Future backend</h3><p>Replace <code>getData()</code> and <code>saveData()</code> in <code>data.js</code> with Firebase Firestore or Supabase calls. The public page and admin interface are already separated.</p></div>';$("#editor").innerHTML=html}
 $("#loginBtn").onclick=async()=>{
-  if($("#password").value==="admin123"){
+  if($("#password").value==="pajju333"){
     draft=await getData();
     $("#loginView").hidden=true;
     $("#adminView").hidden=false;
