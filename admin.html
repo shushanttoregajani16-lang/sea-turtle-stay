@@ -66,6 +66,11 @@ body{
   box-sizing:border-box;
 }
 
+.admin-card input[type="checkbox"]{
+  width:auto;
+  margin-right:8px;
+}
+
 .row{
   display:grid;
   grid-template-columns:2fr 1fr;
@@ -86,6 +91,16 @@ body{
   background:#fff3d9;
   padding:10px;
   border-radius:10px;
+}
+
+.scooty-preview{
+  width:100%;
+  max-width:220px;
+  height:130px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-top:12px;
+  border:1px solid var(--line);
 }
 
 @media(max-width:650px){
@@ -251,6 +266,8 @@ function editor(){
 
   let html = `
 
+    <!-- CONTACT -->
+
     <div class="admin-card">
 
       <h3>Contact information</h3>
@@ -293,6 +310,8 @@ function editor(){
 
     </div>
 
+
+    <!-- ROOMS -->
 
     <div class="admin-card">
 
@@ -375,6 +394,116 @@ function editor(){
     </div>
 
 
+    <!-- SCOOTY -->
+
+    <div class="admin-card">
+
+      <h3>🛵 Scooty Rental</h3>
+
+      <p style="color:var(--muted);font-size:.9rem">
+        Manage scooty names, daily prices and availability.
+        Changes will be saved to Supabase.
+      </p>
+
+  `;
+
+
+  if(Array.isArray(draft.scooty)){
+
+    draft.scooty.forEach((s,i)=>{
+
+      html += `
+
+        <div
+          style="
+            padding:15px 0;
+            border-top:1px solid var(--line)
+          "
+        >
+
+          <h4 style="margin-bottom:12px">
+            Scooty ${i + 1}
+          </h4>
+
+
+          <div class="row">
+
+            <label>
+              Scooty name
+
+              <input
+                data-s="${i}"
+                data-k="name"
+                value="${s.name || ""}"
+              >
+            </label>
+
+
+            <label>
+              Price / day
+
+              <input
+                type="number"
+                min="0"
+                data-s="${i}"
+                data-k="price"
+                value="${s.price || 0}"
+              >
+            </label>
+
+          </div>
+
+
+          <label>
+
+            <input
+              type="checkbox"
+              data-s="${i}"
+              data-k="available"
+              ${s.available !== false ? "checked" : ""}
+            >
+
+            Available for rental
+
+          </label>
+
+
+          ${
+            s.image
+            ? `<img
+                class="scooty-preview"
+                src="${s.image}"
+                alt="${s.name || "Scooty"}"
+              >`
+            : ""
+          }
+
+        </div>
+
+      `;
+
+    });
+
+  }else{
+
+    html += `
+
+      <p style="color:#b00020">
+        Scooty data is not available in data.js.
+      </p>
+
+    `;
+
+  }
+
+
+  html += `
+
+    </div>
+
+
+    <!-- HOW SAVING WORKS -->
+
     <div class="admin-card">
 
       <h3>How saving works</h3>
@@ -382,7 +511,8 @@ function editor(){
       <p>
         Changes made here are saved to Supabase.
         The public Sea Turtle Stay website reads the same data,
-        so updated room prices and availability will appear publicly.
+        so updated room and scooty prices and availability
+        can appear publicly.
       </p>
 
     </div>
@@ -470,12 +600,17 @@ $("#loginBtn").onclick = async () => {
 
 $("#saveBtn").onclick = async () => {
 
+
+  /* CONTACT */
+
   document.querySelectorAll("[data-c]").forEach(x => {
 
     draft.contact[x.dataset.c] = x.value.trim();
 
   });
 
+
+  /* ROOMS */
 
   document.querySelectorAll("[data-r]").forEach(x => {
 
@@ -485,6 +620,25 @@ $("#saveBtn").onclick = async () => {
 
 
     r[k] =
+      k === "price"
+        ? Number(x.value)
+        : k === "available"
+        ? x.checked
+        : x.value;
+
+  });
+
+
+  /* SCOOTY */
+
+  document.querySelectorAll("[data-s]").forEach(x => {
+
+    const s = draft.scooty[x.dataset.s];
+
+    const k = x.dataset.k;
+
+
+    s[k] =
       k === "price"
         ? Number(x.value)
         : k === "available"
@@ -558,46 +712,4 @@ $("#password").addEventListener("keydown", e => {
 </script>
 
 </body>
-</html>    password: password
-  });
-
-  if(error){
-    console.error("Login error:", error);
-    alert("Login failed: " + error.message);
-    return;
-  }
-
-  draft=await getData();
-
-  $("#loginView").hidden=true;
-  $("#adminView").hidden=false;
-
-  editor();
-};
-$("#saveBtn").onclick=async()=>{
-  document.querySelectorAll("[data-c]").forEach(x=>{
-    draft.contact[x.dataset.c]=x.value.trim();
-  });
-
-  document.querySelectorAll("[data-r]").forEach(x=>{
-    const r=draft.rooms[x.dataset.r];
-    const k=x.dataset.k;
-
-    r[k]=
-      k==="price"
-        ? Number(x.value)
-        : k==="available"
-        ? x.checked
-        : x.value;
-  });
-
-  const success=await saveData(draft);
-
-  if(success){
-    alert("Saved successfully. The public website will now use the updated data.");
-  }else{
-    alert("Save failed. Check the browser console.");
-  }
-};
-$("#resetBtn").onclick=()=>{if(confirm("Reset all local demo changes?")){localStorage.removeItem("seaTurtleData");location.reload()}};
-</script></body></html>
+</html>
