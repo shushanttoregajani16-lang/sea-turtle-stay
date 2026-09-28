@@ -1,6 +1,6 @@
 const SUPABASE_URL = "https://gxpueubienpmoozlgkyu.supabase.co/rest/v1/";
 const SUPABASE_KEY = "sb_publishable_T-OsYgpjuMJCO6puzNyJCw_7ExcPZt8";
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
@@ -66,7 +66,7 @@ async function getData(){
 }
 
 async function saveData(data){
-  const { data: row } = await supabase
+  const { data: row } = await supabaseClient
     .from("site_data")
     .select("id")
     .limit(1)
@@ -74,7 +74,7 @@ async function saveData(data){
 
   if (!row) return;
 
-  const { error } = await supabase
+  const { error } = await supabaseClient
     .from("site_data")
     .update({ data })
     .eq("id", row.id);
